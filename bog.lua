@@ -14,6 +14,11 @@ local function CheckSteelHelmet(Model)
     return Armor and Armor:FindFirstChild("SteelHelmet")
 end
 
+local function CheckGun(Model)
+    local Gun = Model:FindFirstChild("HandModel")
+    return Gun and Gun:FindFirstChild("Mag")
+end
+
 for _, Model in pairs(workspace:GetChildren()) do
     if Model:IsA("Model") and Model ~= game.Players.LocalPlayer.Character then
         local Head = GetHead(Model)
@@ -56,9 +61,10 @@ game:GetService("RunService").RenderStepped:Connect(function()
                     Text.Text = "CombatHelmet"
                 elseif CheckSteelHelmet(Model) then
                     Text.Text = "SteelHelmet"
+                elseif CheckGun(Model) then 
+                    Text.Text = "Gun"
                 else 
                     Text.Text = "X"
-                    
                 end
                 Text.Color = Color3.new(1, 1, 1)
                 
