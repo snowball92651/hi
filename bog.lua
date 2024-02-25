@@ -16,7 +16,7 @@ end
 
 local function CheckGun(Model)
     local Gun = Model:FindFirstChild("HandModel")
-    return Gun and Gun:FindFirstChild("Mag")
+    return Gun and Gun:FindFirstChild("Body")
 end
 
 for _, Model in pairs(workspace:GetChildren()) do
